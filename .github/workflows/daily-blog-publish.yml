@@ -1,0 +1,57 @@
+name: Daily Blog Publish & Deploy
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 09:00 UTC+8 every day
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+jobs:
+  publish-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Publish drafts (if scheduled)
+        if: github.event_name == 'schedule'
+        run: |
+          python auto_publish.py
+
+      - name: Regenerate sitemap
+        run: |
+          python -c "
+          import os, datetime
+          posts = [f for f in os.listdir('posts') if f.endswith('.html')]
+          BASE = 'https://blog.heyboss.com.tw'
+          sm = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n'
+          sm += f'  <url><loc>{BASE}/</loc><lastmod>{datetime.date.today()}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>\n'
+          for p in sorted(posts):
+              slug = p.replace('.html','')
+              mtime = datetime.datetime.fromtimestamp(os.path.getmtime(f'posts/{p}')).strftime('%Y-%m-%d')
+              sm += f'  <url><loc>{BASE}/posts/{slug}.html</loc><lastmod>{mtime}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>\n'
+          sm += '</urlset>\n'
+          with open('sitemap.xml','w') as f: f.write(sm)
+          print(f'Sitemap: {len(posts)} posts')
+          "
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: auto-publish $(date +%Y-%m-%d)"
+          git push
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: heyboss-blog
+          directory: .
