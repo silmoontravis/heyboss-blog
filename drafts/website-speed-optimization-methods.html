@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網站載入速度優化方法｜2026年完整技術指南 — HEY!BOSS Blog</title>
+<meta name="description" content="網站載入速度優化方法完整教學。從圖片壓縮、CDN 設定、程式碼最佳化到 Core Web Vitals 改善，HeyBoss 教你實際可執行的網站加速技巧，提升使用者體驗與搜尋排名。">
+<meta name="keywords" content="網站載入速度優化方法, 網站速度, Core Web Vitals, CDN, 圖片壓縮, HEY!BOSS">
+<link rel="canonical" href="https://www.heyboss.com.tw/blog/drafts/website-speed-optimization-methods.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:title" content="網站載入速度優化方法｜2026技術指南">
+<meta property="og:description" content="從圖片壓縮到 Core Web Vitals，完整的網站加速技巧。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.heyboss.com.tw/blog/drafts/website-speed-optimization-methods.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="HEY!BOSS Blog">
+<meta property="article:published_time" content="2026-05-01">
+<meta property="article:author" content="Travis Chen">
+<meta property="article:section" content="網站技術">
+<meta name="author" content="HEY!BOSS 銀月數位顧問">
+<link rel="icon" href="../heyboss/logos/logo_final.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "網站載入速度優化方法｜2026年完整技術指南",
+  "description": "從圖片壓縮到 Core Web Vitals 改善，完整的網站加速技巧。",
+  "datePublished": "2026-05-01",
+  "dateModified": "2026-05-01",
+  "author": {
+    "@type": "Person",
+    "name": "Travis Chen",
+    "jobTitle": "CEO",
+    "worksFor": { "@type": "Organization", "name": "銀月數位顧問股份有限公司" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HEY!BOSS 銀月數位顧問",
+    "url": "https://www.heyboss.com.tw/",
+    "logo": "https://www.heyboss.com.tw/heyboss/logos/logo_final.png"
+  },
+  "mainEntityOfPage": "https://www.heyboss.com.tw/blog/drafts/website-speed-optimization-methods.html",
+  "articleSection": "網站技術",
+  "wordCount": 1050,
+  "inLanguage": "zh-TW"
+}
+</script>
+</head>
+<body>
+<article class="blog-post">
+
+<h1>網站載入速度優化方法｜2026年完整技術指南</h1>
+<p class="post-meta">2026-05-01 ・ HEY!BOSS 銀月數位顧問</p>
+
+<section>
+<h2>網站速度為什麼這麼重要？</h2>
+<p>根據 Google 研究，頁面載入時間從 1 秒增加到 3 秒，跳出率上升 32%。增加到 5 秒，跳出率暴增 90%。更重要的是，2021 年起 Google 將 Core Web Vitals 納入排名因素，網站速度直接影響你的搜尋排名。</p>
+<p>HEY!BOSS 銀月數位顧問建置的網站，平均 Lighthouse 效能分數在 90 分以上。以下分享我們的優化方法論。</p>
+</section>
+
+<section>
+<h2>一、圖片優化（最大效益）</h2>
+<p>圖片通常佔網頁總大小的 50~70%，是優化的首要目標。</p>
+<p><strong>1. 使用新一代格式：</strong>WebP 比 JPEG 小 25~35%，AVIF 更小 50%。使用 &lt;picture&gt; 標籤提供多格式支援。</p>
+<p><strong>2. 適當的尺寸：</strong>不要上傳 4000px 寬的照片然後用 CSS 縮小到 800px。根據實際顯示尺寸裁切圖片。</p>
+<p><strong>3. 懶載入（Lazy Loading）：</strong>加入 <code>loading="lazy"</code> 屬性，讓畫面外的圖片延遲載入。首屏圖片不要懶載入。</p>
+<p><strong>4. 圖片 CDN：</strong>使用 Cloudflare Images、imgix 或 Cloudinary 等服務，自動根據裝置尺寸與網路狀況提供最佳化的圖片。</p>
+</section>
+
+<section>
+<h2>二、程式碼優化</h2>
+<p><strong>1. 壓縮 CSS/JS：</strong>使用工具（如 terser、cssnano）移除空白與註解，減少檔案大小 30~60%。</p>
+<p><strong>2. 移除未使用的 CSS：</strong>使用 PurgeCSS 移除未使用的樣式。許多網站有超過 90% 的 CSS 是未使用的。</p>
+<p><strong>3. 延遲載入非關鍵 JS：</strong>使用 <code>defer</code> 或 <code>async</code> 屬性，讓分析工具、聊天插件等非核心腳本不阻塞渲染。</p>
+<p><strong>4. 減少第三方腳本：</strong>每個第三方腳本（廣告、追蹤碼、社群插件）都有成本。定期審視是否每個都真的需要。</p>
+<p><strong>5. 程式碼分割（Code Splitting）：</strong>只載入當前頁面需要的 JS，其他頁面的程式碼延後載入。</p>
+</section>
+
+<section>
+<h2>三、伺服器與基礎設施</h2>
+<p><strong>1. CDN（Content Delivery Network）：</strong>使用 Cloudflare、AWS CloudFront 等 CDN，將靜態資源分發到全球節點。台灣使用者連到新加坡或東京節點，比連到美國快 10 倍。</p>
+<p><strong>2. HTTP/2 或 HTTP/3：</strong>確保伺服器支援 HTTP/2 以上協定，允許多路復用，大幅減少連線建立時間。</p>
+<p><strong>3. Gzip/Brotli 壓縮：</strong>啟用伺服器端壓縮，HTML/CSS/JS 檔案可再縮小 60~80%。Brotli 比 Gzip 壓縮率更好。</p>
+<p><strong>4. 瀏覽器快取設定：</strong>為靜態資源設定適當的 Cache-Control 標頭，讓回訪使用者不需重新下載。</p>
+<p><strong>5. 伺服器回應時間（TTFB）：</strong>目標在 200ms 以內。如果超過 600ms，考慮升級主機或優化後端程式碼。</p>
+</section>
+
+<section>
+<h2>四、Core Web Vitals 三大指標</h2>
+<p><strong>LCP（Largest Contentful Paint）：</strong>最大內容繪製時間，目標 2.5 秒內。通常是首屏大圖或標題文字。優化方法：預載入關鍵資源、優化圖片、減少伺服器回應時間。</p>
+<p><strong>INP（Interaction to Next Paint）：</strong>互動回應速度，目標 200ms 內。優化方法：減少主執行緒阻塞時間、分割長任務、最佳化事件處理器。</p>
+<p><strong>CLS（Cumulative Layout Shift）：</strong>累積版面位移，目標 0.1 以下。優化方法：為圖片設定固定尺寸、避免動態插入內容、字型預載入。</p>
+</section>
+
+<section>
+<h2>五、測試工具與監控</h2>
+<p><strong>測試工具：</strong></p>
+<ul>
+<li>Google PageSpeed Insights：綜合效能報告 + Core Web Vitals</li>
+<li>GTmetrix：詳細的載入瀑布圖分析</li>
+<li>WebPageTest：多地點、多裝置測試</li>
+<li>Chrome DevTools Lighthouse：本地開發即時測試</li>
+</ul>
+<p><strong>持續監控：</strong>HEY!BOSS 提供每日自動化效能監控，一旦分數下降立即發出通知。速度優化不是一次性工作，需要持續追蹤。</p>
+</section>
+
+<section>
+<h2>相關服務推薦</h2>
+<p>想了解更多 HeyBoss 的服務？以下是與本文相關的延伸閱讀：</p>
+<ul style="list-style:none;padding:0;">
+  <li><a href="ecommerce-seo-tips.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">電商網站 SEO 優化技巧</a></li>
+  <li><a href="rwd-responsive-design.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">RWD 響應式設計為什麼重要？</a></li>
+  <li><a href="website-redesign-checklist.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">網站改版注意事項完整清單</a></li>
+  <li><a href="ssl-certificate-guide.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">網站 SSL 憑證安裝教學</a></li>
+</ul>
+<p style="margin-top:1rem;"><a href="https://www.heyboss.com.tw/#contact" style="color:var(--hey-blue, #4A90D9);font-weight:700;">→ 免費諮詢 HeyBoss 服務方案</a></p>
+</section>
+
+</article>
+
+<footer class="blog-footer">
+  <a href="https://www.heyboss.com.tw/">HEY!BOSS</a> 銀月數位顧問股份有限公司 &copy; 2026 |
+  <a href="../">返回 Blog</a>
+</footer>
+</body>
+</html>

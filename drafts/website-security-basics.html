@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網站資安防護基礎｜中小企業必知的網站安全入門指南 — HEY!BOSS Blog</title>
+<meta name="description" content="網站資安防護基礎完整教學。從常見攻擊類型、基本防護措施到日常維護流程，HeyBoss 教中小企業如何用有限預算做好網站安全防護，避免駭客入侵與資料外洩。">
+<meta name="keywords" content="網站資安防護基礎, 網站安全, 資安, 駭客防護, WAF, HEY!BOSS">
+<link rel="canonical" href="https://www.heyboss.com.tw/blog/drafts/website-security-basics.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:title" content="網站資安防護基礎｜中小企業安全入門">
+<meta property="og:description" content="用有限預算做好網站安全防護，避免駭客入侵與資料外洩。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.heyboss.com.tw/blog/drafts/website-security-basics.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="HEY!BOSS Blog">
+<meta property="article:published_time" content="2026-05-01">
+<meta property="article:author" content="Travis Chen">
+<meta property="article:section" content="網站技術">
+<meta name="author" content="HEY!BOSS 銀月數位顧問">
+<link rel="icon" href="../heyboss/logos/logo_final.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "網站資安防護基礎｜中小企業必知的網站安全入門指南",
+  "description": "中小企業如何用有限預算做好網站安全防護。",
+  "datePublished": "2026-05-01",
+  "dateModified": "2026-05-01",
+  "author": {
+    "@type": "Person",
+    "name": "Travis Chen",
+    "jobTitle": "CEO",
+    "worksFor": { "@type": "Organization", "name": "銀月數位顧問股份有限公司" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HEY!BOSS 銀月數位顧問",
+    "url": "https://www.heyboss.com.tw/",
+    "logo": "https://www.heyboss.com.tw/heyboss/logos/logo_final.png"
+  },
+  "mainEntityOfPage": "https://www.heyboss.com.tw/blog/drafts/website-security-basics.html",
+  "articleSection": "網站技術",
+  "wordCount": 1050,
+  "inLanguage": "zh-TW"
+}
+</script>
+</head>
+<body>
+<article class="blog-post">
+
+<h1>網站資安防護基礎｜中小企業必知的網站安全入門指南</h1>
+<p class="post-meta">2026-05-01 ・ HEY!BOSS 銀月數位顧問</p>
+
+<section>
+<h2>中小企業也會被駭嗎？</h2>
+<p>「我們公司這麼小，駭客不會盯上我們吧？」這是 HEY!BOSS 銀月數位顧問最常聽到的迷思。事實上，根據 2025 年全球資安報告，43% 的網路攻擊針對中小企業。原因很簡單：大企業有專業資安團隊，中小企業往往毫無防備，是最容易得手的目標。</p>
+<p>一次成功的入侵可能導致客戶資料外洩、網站被植入惡意程式、Google 標記為危險網站、甚至勒索贖金。修復成本遠高於預防成本。</p>
+</section>
+
+<section>
+<h2>常見的網站攻擊類型</h2>
+<p><strong>1. SQL Injection：</strong>攻擊者透過表單或 URL 注入惡意 SQL 指令，竊取或破壞資料庫內容。</p>
+<p><strong>2. XSS（跨站腳本攻擊）：</strong>在網頁中注入惡意 JavaScript，竊取使用者的 Cookie 或個資。</p>
+<p><strong>3. 暴力破解：</strong>用自動化工具不斷嘗試帳號密碼組合，直到猜中為止。</p>
+<p><strong>4. DDoS 攻擊：</strong>用大量假流量癱瘓網站伺服器，讓正常使用者無法訪問。</p>
+<p><strong>5. 惡意檔案上傳：</strong>利用上傳功能的漏洞，上傳後門程式取得伺服器控制權。</p>
+<p><strong>6. 社交工程：</strong>偽裝成客戶或合作夥伴，騙取管理員帳號密碼。</p>
+</section>
+
+<section>
+<h2>基本防護措施（必做清單）</h2>
+<p><strong>1. SSL 憑證（HTTPS）：</strong>加密所有資料傳輸，防止中間人攻擊。這是最基本的安全措施。</p>
+<p><strong>2. 強密碼政策：</strong>所有管理帳號使用 12 位以上的複雜密碼，不與其他服務共用。搭配密碼管理器使用。</p>
+<p><strong>3. 雙因素驗證（2FA）：</strong>為所有管理後台啟用 2FA，即使密碼被盜也無法登入。</p>
+<p><strong>4. 定期更新：</strong>CMS 核心、外掛、佈景主題、伺服器作業系統都要及時更新。80% 的入侵來自已知漏洞。</p>
+<p><strong>5. 定期備份：</strong>每日自動備份資料庫與檔案，備份存放在獨立位置。測試過還原流程。</p>
+<p><strong>6. 最小權限原則：</strong>每個帳號只給予必要的最低權限。不是每個人都需要管理員權限。</p>
+</section>
+
+<section>
+<h2>進階防護方案</h2>
+<p><strong>1. WAF（Web Application Firewall）：</strong>如 Cloudflare WAF，在流量到達伺服器前就過濾惡意請求。可擋掉 95% 以上的自動化攻擊。</p>
+<p><strong>2. 入侵偵測系統：</strong>監控異常登入行為、檔案異動、可疑流量模式，即時發出警報。</p>
+<p><strong>3. 安全標頭設定：</strong>設定 Content-Security-Policy、X-Frame-Options、X-Content-Type-Options 等 HTTP 安全標頭。</p>
+<p><strong>4. 弱點掃描：</strong>定期使用 OWASP ZAP 或 Acunetix 等工具掃描網站漏洞。</p>
+<p><strong>5. 資料加密：</strong>敏感資料（密碼、信用卡號）在資料庫中以加密形式儲存，而非明文。</p>
+</section>
+
+<section>
+<h2>日常維護安全流程</h2>
+<p><strong>每日：</strong>自動備份、監控異常登入警報。</p>
+<p><strong>每週：</strong>檢查系統更新通知、審視管理帳號登入紀錄。</p>
+<p><strong>每月：</strong>執行弱點掃描、更新所有密碼、審視帳號權限。</p>
+<p><strong>每季：</strong>完整安全稽核、測試災難復原流程、員工資安教育訓練。</p>
+</section>
+
+<section>
+<h2>HeyBoss 的資安服務</h2>
+<p>HEY!BOSS 銀月數位顧問為客戶提供的網站都內建基礎資安防護：SSL 加密、安全標頭設定、每日自動備份、WAF 防護。進階方案還包含 24/7 監控、弱點掃描報告、以及資安事件應急處理。</p>
+<p>不確定你的網站安全嗎？歡迎預約免費的資安健檢服務。</p>
+</section>
+
+<section>
+<h2>相關服務推薦</h2>
+<p>想了解更多 HeyBoss 的服務？以下是與本文相關的延伸閱讀：</p>
+<ul style="list-style:none;padding:0;">
+  <li><a href="ssl-certificate-guide.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">網站 SSL 憑證安裝教學</a></li>
+  <li><a href="wordpress-vs-custom-website.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">WordPress vs 客製化網站比較</a></li>
+  <li><a href="website-redesign-checklist.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">網站改版注意事項完整清單</a></li>
+  <li><a href="website-speed-optimization-methods.html" style="color:var(--hey-blue, #4A90D9);text-decoration:none;font-weight:500;">網站載入速度優化方法</a></li>
+</ul>
+<p style="margin-top:1rem;"><a href="https://www.heyboss.com.tw/#contact" style="color:var(--hey-blue, #4A90D9);font-weight:700;">→ 免費諮詢 HeyBoss 服務方案</a></p>
+</section>
+
+</article>
+
+<footer class="blog-footer">
+  <a href="https://www.heyboss.com.tw/">HEY!BOSS</a> 銀月數位顧問股份有限公司 &copy; 2026 |
+  <a href="../">返回 Blog</a>
+</footer>
+</body>
+</html>
